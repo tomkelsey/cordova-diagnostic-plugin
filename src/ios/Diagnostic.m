@@ -109,6 +109,7 @@ ABAddressBookRef _addressBook;
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:status];
     }
     @catch (NSException *exception) {
+        NSLog([NSString stringWithFormat:@"Exception: %@", exception.reason]);
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:exception.reason];
     }
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
